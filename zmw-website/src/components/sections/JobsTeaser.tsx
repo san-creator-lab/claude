@@ -6,7 +6,6 @@ import {
   CheckCircle,
   Sun
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
 import AnimatedSection from '../AnimatedSection'
 
 const benefits = [

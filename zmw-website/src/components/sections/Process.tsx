@@ -1,5 +1,4 @@
 import { FileText, ThumbsUp, Settings, PackageCheck } from 'lucide-react'
-import { cn } from '@/lib/utils'
 import AnimatedSection from '../AnimatedSection'
 
 const steps = [

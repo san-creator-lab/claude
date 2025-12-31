@@ -96,7 +96,6 @@ export default function Metrics() {
                 <MetricValue
                   key={metric.id}
                   metric={metric}
-                  index={index}
                   isLast={index === metrics.length - 1}
                 />
               ))}
@@ -155,11 +154,10 @@ export default function Metrics() {
 
 interface MetricValueProps {
   metric: typeof metrics[0]
-  index: number
   isLast: boolean
 }
 
-function MetricValue({ metric, index, isLast }: MetricValueProps) {
+function MetricValue({ metric, isLast }: MetricValueProps) {
   const [count, setCount] = useState(0)
   const [hasAnimated, setHasAnimated] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
