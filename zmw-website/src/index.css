@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-graphite-950 text-cream-100 font-body;
+    font-feature-settings: 'liga' 1, 'kern' 1;
+  }
+
+  ::selection {
+    @apply bg-accent-500/30 text-cream-50;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-graphite-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-graphite-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-graphite-600;
+  }
+}
+
+@layer components {
+  /* Premium button styles */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-8 py-4
+           bg-accent-500 text-graphite-950 font-semibold text-body
+           rounded-none overflow-hidden transition-all duration-300
+           hover:bg-accent-400 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-accent-500/25
+           focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-graphite-950
+           active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center px-8 py-4
+           border-2 border-cream-200 text-cream-100 font-semibold text-body
+           rounded-none overflow-hidden transition-all duration-300
+           hover:bg-cream-100 hover:text-graphite-950 hover:translate-y-[-2px]
+           focus:outline-none focus:ring-2 focus:ring-cream-200 focus:ring-offset-2 focus:ring-offset-graphite-950
+           active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-cream-200 font-medium
+           transition-all duration-300 hover:text-accent-400
+           hover:gap-3;
+  }
+
+  /* Card styles */
+  .card-industrial {
+    @apply relative bg-graphite-900/50 backdrop-blur-sm
+           border border-graphite-700/50
+           transition-all duration-300
+           hover:border-accent-500/50 hover:bg-graphite-900/80
+           hover:translate-y-[-4px] hover:shadow-xl hover:shadow-accent-500/10;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-cream-100 via-cream-200 to-cream-300
+           bg-clip-text text-transparent;
+  }
+
+  .text-gradient-accent {
+    @apply bg-gradient-to-r from-accent-300 via-accent-400 to-accent-500
+           bg-clip-text text-transparent;
+  }
+
+  /* Industrial line decoration */
+  .industrial-line {
+    @apply relative;
+  }
+
+  .industrial-line::before {
+    content: '';
+    @apply absolute left-0 top-0 w-1 h-full bg-accent-500;
+  }
+
+  /* Precision grid background */
+  .precision-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Metal texture overlay */
+  .metal-texture {
+    @apply relative;
+  }
+
+  .metal-texture::after {
+    content: '';
+    @apply absolute inset-0 opacity-[0.015] pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  /* Container with industrial margins */
+  .container-industrial {
+    @apply max-w-8xl mx-auto px-6 md:px-12 lg:px-20;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
+  /* Hide scrollbar but allow scroll */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
